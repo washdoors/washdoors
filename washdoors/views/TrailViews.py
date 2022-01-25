@@ -6,7 +6,7 @@ def trail(request):
     name = 'Road Issue'
     isseid = 2
     cursor = conn.cursor(buffered=True)
-    cursor.execute(f"select * from issues where Name = '{name}';")
+    cursor.execute(f"select * from Issues where Name = '{name}';")
     print(cursor.fetchone())
     conn.close()
     return render(request,"trail.html")
