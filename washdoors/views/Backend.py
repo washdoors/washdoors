@@ -4,11 +4,12 @@ import mysql.connector as mysql
 class DatabaseConnection(object):
     def __new__(cls, *args, **kwargs):
         conn = mysql.connect(
-            host='127.0.0.1',
-            database='villagecouncil',
-            user='rushi',
-            password='xyz'
+            host='sql6.freemysqlhosting.net',
+            database='sql6468008',
+            user='sql6468008',
+            password='eqHRn7SbqA'
         )
+        print("connected")
         print(type(conn))
         return conn
 
@@ -18,3 +19,4 @@ class DatabaseConnection(object):
 #functions for convertiting functions
 class ConvertFunction(object):
     pass
+
