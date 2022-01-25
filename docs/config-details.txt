@@ -1,0 +1,7 @@
+python version 3.9.5
+
+database - mysql
+
+pip commands
+	pip install mysql-connector-python
+	pip install django
