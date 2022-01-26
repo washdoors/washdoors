@@ -1,7 +1,11 @@
 python version 3.9.5
 
 database - mysql
+	mysql -h sql6.freemysqlhosting.net -P 3306 -D sql6468008 -u sql6468008 -p
+	SELECT * FROM information_schema.table_constraints WHERE constraint_schema = 'sql6468008'
 
 pip commands
 	pip install mysql-connector-python
 	pip install django
+	pip install secure-smtplib
+	pip install emails
