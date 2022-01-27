@@ -34,3 +34,33 @@ class EmailSender(object):
     def setContent(self):
         msg = EmailMessage()
 
+#class for vendor
+class Vendor(object):
+    def __init__(self,id):
+        self.id = id
+
+    def getServices(self):
+        conn = DatabaseConnection()
+        cursor = conn.cursor(buffered=True)
+        cursor.execute(f"SELECT * service FROM WHERE VendorId = '{self.id}';")
+        services = cursor.fetchall()
+        conn.close()
+        return services
+
+    def getProfile(self):
+        conn = DatabaseConnection()
+        cursor = conn.cursor(buffered=True)
+        cursor.execute(f"SELECT * FROM vendor WHERE VendorId = '{self.id}';")
+        profile_details = cursor.fetchone()
+        conn.close()
+        return profile_details
+
+    def getOrders(self):
+        conn = DatabaseConnection()
+        cursor = conn.cursor(buffered=True)
+        cursor.execute(f"SELECT * FROM orders WHERE VendorId = '{self.id}';")
+        orders = cursor.fetchall()
+        conn.close()
+        return orders
+
+
