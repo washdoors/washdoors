@@ -63,4 +63,53 @@ class Vendor(object):
         conn.close()
         return orders
 
+#customer class
+class Customer(object):
+    def __init__(self,id):
+        self.id = id
+
+    def __init__(self):
+        pass
+
+    def getProfile(self):
+        conn = DatabaseConnection()
+        cursor = conn.cursor(buffered=True)
+        cursor.execute(f"SELECT * FROM customer WHERE CustId = '{self.id}';")
+        profile_details = cursor.fetchone()
+        conn.close()
+        return profile_details
+
+    def getOrders(self):
+        conn = DatabaseConnection()
+        cursor = conn.cursor(buffered=True)
+        cursor.execute(f"SELECT * FROM orders WHERE CustId = '{self.id}';")
+        orders = cursor.fetchall()
+        conn.close()
+        return orders
+
+#Rider class
+class Rider(object):
+    def __init__(self, id):
+        self.id = id
+
+    def __int__(self):
+        pass
+
+    def getProfile(self):
+        conn = DatabaseConnection()
+        cursor = conn.cursor(buffered=True)
+        cursor.execute(f"SELECT * FROM rider WHERE RiderId = '{self.id}';")
+        profile_details = cursor.fetchone()
+        conn.close()
+        return profile_details
+
+    def getOrders(self):
+        conn = DatabaseConnection()
+        cursor = conn.cursor(buffered=True)
+        cursor.execute(f"SELECT * FROM orders WHERE RiderId = '{self.id}';")
+        orders = cursor.fetchall()
+        conn.close()
+        return orders
+
+
 
