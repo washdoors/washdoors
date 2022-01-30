@@ -63,6 +63,15 @@ class Vendor(object):
         conn.close()
         return orders
 
+    def chechAvailibilty(self):
+        # send push notification
+        availiibity = 'fet from vendor'
+        if (availiibity):
+            return True
+        else:
+            return False
+
+
 #customer class
 class Customer(object):
     def __init__(self,id):
@@ -86,6 +95,7 @@ class Customer(object):
         orders = cursor.fetchall()
         conn.close()
         return orders
+
 
 #Rider class
 class Rider(object):
@@ -111,5 +121,16 @@ class Rider(object):
         conn.close()
         return orders
 
+    def chechAvailibilty(self):
+        #send push notification
+        availiibity = 'fet from vendor'
+        if(availiibity):
+            return True
+        else:
+            return False
 
 
+class Order(object):
+    def createOrder(self,custid):
+        #use the api of payment
+        print(custid)
