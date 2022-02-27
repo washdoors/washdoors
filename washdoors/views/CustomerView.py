@@ -24,3 +24,9 @@ def custRegister(request):
     cursor.execute(f"INSERT INTO customer VALUES('{firstname}','{lastname}','{custid}','{password}','{city}','{area}','{pin}','{mobile}');")
     conn.close()
     return render(request, 'trail.html')
+
+def home(request):
+    return render(request,'customer//home.html')
+
+def contact(request):
+    return render(request,'customer//contact.html')
