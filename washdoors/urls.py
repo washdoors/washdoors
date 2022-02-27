@@ -18,8 +18,11 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from .views import TrailViews
+from .views import CustomerView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', CustomerView.home, name='home'),
+    path('contact', CustomerView.contact, name='home'),
     path('trail', TrailViews.trail, name='trail')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
