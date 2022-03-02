@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .Backend import DatabaseConnection
+from .Backend import EmailSender
+from email.message import EmailMessage
 
 def custLogin(request):
     custid = 'usr'
@@ -29,4 +31,14 @@ def home(request):
     return render(request,'customer//home.html')
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        senderemail = request.POST.get('email')
+        address1 = request.POST.get('address1')
+        # print(name,senderemail,address1)
+        email = EmailSender()
+        msg = EmailMessage()
+        msg['subject'] = 'Query from customer'
+        msg.set_content(f'{name} from {address1} has raised a query.')
+        email.sendEmail(senderemail,str(msg))
     return render(request,'customer//contact.html')
