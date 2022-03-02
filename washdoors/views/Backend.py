@@ -1,6 +1,5 @@
 import mysql.connector as mysql
 import smtplib
-from email.message import EmailMessage
 
 #class for data connectivity with MySql
 class DatabaseConnection(object):
@@ -26,13 +25,13 @@ class ConvertFunction(object):
 class EmailSender(object):
     def __init__(self):
         self.server = smtplib.SMTP_SSL("smtp.gmail.com")
-        self.server.login("send@address.com", "sender_psk")
+        self.server.login("rushikeshborakhede@student.sfit.ac.in", "Rushi_1192#")
 
-    def sendEmail(self,sender,receiver,content):
-        self.server.sendmail(sender,receiver,content)
+    def sendEmail(self,receiver,content):
+        self.server.sendmail('rushikeshborakhede@student.sfit.ac.in',receiver,content)
 
-    def setContent(self):
-        msg = EmailMessage()
+    # def setContent(self):
+    #     msg = EmailMessage()
 
 #class for vendor
 class Vendor(object):
