@@ -23,6 +23,9 @@ from .views import CustomerView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CustomerView.home, name='home'),
-    path('contact', CustomerView.contact, name='home'),
-    path('trail', TrailViews.trail, name='trail')
+    path('contact/', CustomerView.contact, name='home'),
+    path('cust/login/',CustomerView.custLogin,name="Customer_Login"),
+    path('cust/dashboard/',CustomerView.dashboard,name='customerDashboard'),
+
+    path('trail/', TrailViews.trail, name='trail'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
