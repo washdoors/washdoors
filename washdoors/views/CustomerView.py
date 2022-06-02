@@ -4,13 +4,13 @@ from .Backend import EmailSender
 from email.message import EmailMessage
 
 def custLogin(request):
-    custid = 'usr'
-    psk = 'psk'
-    conn = DatabaseConnection()
-    cursor = conn.cursor(buffered=True)
-    cursor.execute(f"SELECT * customer FROM WHERE CustId = '{custid}' AND Password = '{psk}';")
-    conn.close()
-    return render(request,'trail.html')
+    # custid = 'usr'
+    # psk = 'psk'
+    # conn = DatabaseConnection()
+    # cursor = conn.cursor(buffered=True)
+    # cursor.execute(f"SELECT * customer FROM WHERE CustId = '{custid}' AND Password = '{psk}';")
+    # conn.close()
+    return render(request,'customer//login.html')
 
 def custRegister(request):
     firstname = 'firstname'
@@ -42,3 +42,6 @@ def contact(request):
         msg.set_content(f'{name} from {address1} has raised a query.')
         email.sendEmail(senderemail,str(msg))
     return render(request,'customer//contact.html')
+
+def dashboard(request):
+    return render(request,'customer//dashboard.html')
