@@ -1,6 +1,5 @@
-import mysql.connector as mysql
 import smtplib
-
+import pymongo
 #class for data connectivity with MySql
 class DatabaseConnection(object):
     def __new__(cls, *args, **kwargs):
@@ -12,7 +11,7 @@ class DatabaseConnection(object):
         )
         print("connected")
         print(type(conn))
-        return conn
+        return "you are idiot"
 
     def __del__(self):
         self.conn.close()
