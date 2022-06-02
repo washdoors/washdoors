@@ -18,4 +18,9 @@ if 'product' not in collections_list:
 else:
     print('product collection is present')
 
+if 'order' not in collections_list:
+    db.create_collection('order')
+else:
+    print('order collection is created')
+
 client.close()
