@@ -4,12 +4,18 @@ username = urllib.parse.quote_plus('rushi')
 password = urllib.parse.quote_plus('Rushi_1192')
 client = MongoClient('mongodb://%s:%s@127.0.0.1'%(username, password))
 
-db = client['firstDatabase']
+db = client['washdoors']
 
-collection = db['firstCollection']
+collections_list = db.list_collection_names()
 
-data = collection.find_one({'name':'Rushi123'})
+if 'person' not in collections_list:
+    db.create_collection('person')
+else:
+    print('person collection is already present')
 
-print(data)
+if 'product' not in collections_list:
+    db.create_collection('product')
+else:
+    print('product collection is present')
 
 client.close()
