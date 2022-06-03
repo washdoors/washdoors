@@ -1,20 +1,19 @@
+from http import client
 import smtplib
-import pymongo
+from pymongo import MongoClient
+import urllib.parse
 #class for data connectivity with MySql
 class DatabaseConnection(object):
+    client = None    
     def __new__(cls, *args, **kwargs):
-        conn = mysql.connect(
-            host='sql6.freemysqlhosting.net',
-            database='sql6468008',
-            user='sql6468008',
-            password='eqHRn7SbqA'
-        )
-        print("connected")
-        print(type(conn))
-        return "you are idiot"
-
+        username = urllib.parse.quote_plus('rushi')
+        password = urllib.parse.quote_plus('Rushi_1192')
+        client = MongoClient('mongodb://%s:%s@127.0.0.1'%(username, password))
+        db = client['washdoors']
+        return db
     def __del__(self):
-        self.conn.close()
+        self.client.close()
+        print('client is closed')
 
 #functions for convertiting functions
 class ConvertFunction(object):

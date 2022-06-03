@@ -1,7 +1,55 @@
 {% extends 'base.html' %}
 
-{% block title%}Home{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/customer/css/login.css">
+{% endblock %}
+
+{% block title%}Customer Register{% endblock %}
 
 {% block body%} 
-   <h1>Hello Why are you not showing</h1> 
+<div class="row d-flex justify-content-center align-items-center register-container">
+   <div class="col-md-7">
+      <div class="register row">
+         <form class="col-6 my-3" action="/cust/login/" method="post"> {% csrf_token %}
+            <div class="input-group mb-3">
+               <span class="input-group-text" id="basic-addon1">@</span>
+               <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" name="email">
+            </div>
+            <div class="row">
+               <div class="col-6">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text" id="basic-addon1"><i class="bi-person-fill"></i></span>
+                     <input type="text" class="form-control" placeholder="First Name" aria-label="Username" aria-describedby="basic-addon1" name="fname">
+                  </div>
+               </div>
+               <div class="col-6">
+                  <div class="input-group mb-3">
+                     <input type="text" class="form-control" placeholder="Last Name" aria-label="Username" aria-describedby="basic-addon1" name="lname">
+                  </div>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <span class="input-group-text" id="basic-addon1"><i class="bi-phone-fill"></i></span>
+               <input type="number" class="form-control" placeholder="Mobile Number" aria-label="Username" aria-describedby="basic-addon1" name="mobile">
+            </div>
+            <div class="input-group mb-3">
+               <span class="input-group-text" id="basic-addon2"><i class="bi-lock"></i></span>
+               <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" name="password">
+            </div>
+            <div class="input-group mb-3">
+               <span class="input-group-text" id="basic-addon2"><i class="bi-lock"></i></span>
+               <input type="password" class="form-control" placeholder="Confirm Password" aria-label="Password" aria-describedby="basic-addon2" name="cnf_password">
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Submit</button>
+            <a href="/cust/login/">
+               <button class="btn btn-outline-primary" type="button">Login</button>
+             </a>
+         </form>
+         
+         <div class="col-7">
+
+         </div>
+      </div>
+   </div>
+</div>
 {% endblock %}

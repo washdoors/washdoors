@@ -1,7 +1,35 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link rel="stylesheet" href="/static/customer/css/login.css">
+{% endblock %}
+
 {% block title%}Customer Login{% endblock %}
 
-{% block body%} 
-   <h1>This is login Page</h1> 
+{% block body%}
+
+<div class="row d-flex justify-content-center align-items-center" style="height: 500px;">
+   <div class="col-md-6">
+      <div class="register row">
+         <form class="col-5 my-3" action="/cust/dashboard/" method="post"> {% csrf_token %}
+            <div class="input-group mb-3">
+               <span class="input-group-text" id="basic-addon1">@</span>
+               <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username">
+            </div>
+            <div class="input-group mb-3">
+               <span class="input-group-text" id="basic-addon2"><i class="bi-lock"></i></span>
+               <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" name="password">
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Submit</button>
+            <a href="/cust/register/">
+               <button class="btn btn-outline-primary" type="button">Register</button>
+             </a>
+         </form>
+         
+         <div class="col-7">
+
+         </div>
+      </div>
+   </div>
+</div>
 {% endblock %}

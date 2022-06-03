@@ -24,8 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CustomerView.home, name='home'),
     path('contact/', CustomerView.contact, name='home'),
+
     path('cust/login/',CustomerView.custLogin,name="Customer_Login"),
     path('cust/dashboard/',CustomerView.dashboard,name='customerDashboard'),
+    path('cust/register/',CustomerView.custRegister,name='customerRegister'),
 
     path('trail/', TrailViews.trail, name='trail'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

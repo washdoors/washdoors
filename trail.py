@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+"""from pymongo import MongoClient
 import urllib.parse
 username = urllib.parse.quote_plus('rushi')
 password = urllib.parse.quote_plus('Rushi_1192')
@@ -24,3 +24,4 @@ else:
     print('order collection is created')
 
 client.close()
+"""

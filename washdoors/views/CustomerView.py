@@ -1,31 +1,33 @@
+import email
+from unicodedata import name
 from django.shortcuts import render
+from django.http import HttpResponse
 from .Backend import DatabaseConnection
 from .Backend import EmailSender
 from email.message import EmailMessage
 
 def custLogin(request):
-    # custid = 'usr'
-    # psk = 'psk'
-    # conn = DatabaseConnection()
-    # cursor = conn.cursor(buffered=True)
-    # cursor.execute(f"SELECT * customer FROM WHERE CustId = '{custid}' AND Password = '{psk}';")
-    # conn.close()
+    entry = {}
+    if request.method == 'POST':
+        entry['_id'] = request.POST.get('email')
+        entry['fname'] = request.POST.get('fname')
+        entry['lname'] = request.POST.get('lname')
+        entry['mobile'] = request.POST.get('mobile')
+        entry['password'] = request.POST.get('password')
+        entry['role'] = 'customer'
+        print(entry)
+        db = DatabaseConnection()
+        db['person'].insert_one(entry)
+        db.client.close()  #before this line code is working properly
+        return HttpResponse("""
+        <script>
+        alert('You have been succefully registered to system');
+        window.location.href = '/cust/login/';
+        </script>
+        """)
     return render(request,'customer//login.html')
-
 def custRegister(request):
-    firstname = 'firstname'
-    lastname = 'lastname'
-    custid = 'custid'
-    password = 'psk'
-    city = 'city'
-    area = 'area'
-    pin = 1234
-    mobile = 72525662
-    conn = DatabaseConnection()
-    cursor = conn.cursor(buffered=True)
-    cursor.execute(f"INSERT INTO customer VALUES('{firstname}','{lastname}','{custid}','{password}','{city}','{area}','{pin}','{mobile}');")
-    conn.close()
-    return render(request, 'trail.html')
+    return render(request, 'customer//register.html')
 
 def home(request):
     return render(request,'customer//home.html')
@@ -44,4 +46,20 @@ def contact(request):
     return render(request,'customer//contact.html')
 
 def dashboard(request):
-    return render(request,'customer//dashboard.html')
+    input = {}
+    output = {}
+    if request.method == 'POST':
+        input['_id'] = request.POST.get('username')
+        input['password'] = request.POST.get('password')
+        db = DatabaseConnection()
+        output['profile'] = db['person'].find_one(input)
+        if output['profile']:
+            # output['history'] = db['order'].find(input['_id'])
+            return render(request,'customer//dashboard.html')
+        else:
+            return HttpResponse("""
+            <script>
+            alert('Entered username or password is wrong. Please try again');
+            window.location.href = '/cust/login/';
+            </script>
+            """)
