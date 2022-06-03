@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from .views import TrailViews
-from .views import CustomerView
+from .views import CustomerView, VendorView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,8 @@ urlpatterns = [
     path('cust/login/',CustomerView.custLogin,name="Customer_Login"),
     path('cust/dashboard/',CustomerView.dashboard,name='customerDashboard'),
     path('cust/register/',CustomerView.custRegister,name='customerRegister'),
+
+    path('vendor/register/',VendorView.custRegister,name="vendor_register"),
 
     path('trail/', TrailViews.trail, name='trail'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

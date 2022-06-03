@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<link rel="stylesheet" href="/static/customer/css/login.css">
+<link rel="stylesheet" href="/static/vendor/css/login.css">
 {% endblock %}
 
 {% block title%}Customer Register{% endblock %}
@@ -39,6 +39,35 @@
             <div class="input-group mb-3">
                <span class="input-group-text" id="basic-addon2"><i class="bi-lock"></i></span>
                <input type="password" class="form-control" placeholder="Confirm Password" aria-label="Password" aria-describedby="basic-addon2" name="cnf_password">
+            </div>
+            <!-- services start from here -->
+            <div class="row">
+               <div class="form-check form-switch col">
+                  <input class="form-check-input" type="checkbox" role="switch" id="Service1">
+                  <label class="form-check-label" for="Service1">Service1</label>
+               </div>
+               <div class="form-check form-switch col">
+                  <input class="form-check-input" type="checkbox" role="switch" id="Service2">
+                  <label class="form-check-label" for="Service2">Service2</label>
+               </div>
+               <div class="form-check form-switch col">
+                  <input class="form-check-input" type="checkbox" role="switch" id="Service3">
+                  <label class="form-check-label" for="Service3">Service3</label>
+               </div>
+            </div>
+            <div class="row">
+               <div class="form-check form-switch col">
+                  <input class="form-check-input" type="checkbox" role="switch" id="Service1">
+                  <label class="form-check-label" for="Service1">Service1</label>
+               </div>
+               <div class="form-check form-switch col">
+                  <input class="form-check-input" type="checkbox" role="switch" id="Service2">
+                  <label class="form-check-label" for="Service2">Service2</label>
+               </div>
+               <div class="form-check form-switch col">
+                  <input class="form-check-input" type="checkbox" role="switch" id="Service3">
+                  <label class="form-check-label" for="Service3">Service3</label>
+               </div>
             </div>
             <button class="btn btn-outline-primary" type="submit">Submit</button>
             <a href="/cust/login/">
